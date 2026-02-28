@@ -98,7 +98,8 @@ List the key features of your project:
 
 **System Architecture:**
 
-![Architecture Diagram](docs/architecture.png)
+<img width="1018" height="685" alt="image" src="https://github.com/user-attachments/assets/be1f6697-a27d-45c8-89f4-24b441aee601" />
+
 *Explain your system architecture - components, data flow, tech stack interaction*
 
 **Application Workflow:**
@@ -363,8 +364,8 @@ python script.py -v --format json data.json
 ## Project Demo
 
 ### Video
-[Add your demo video link here - YouTube, Google Drive, etc.]
 
+https://youtu.be/uCWsUHMz4Zg
 *Explain what the video demonstrates - key features, user flow, technical highlights*
 
 ### Additional Demos
