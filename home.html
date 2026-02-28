@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Lost & Found Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <div class="doodle-overlay"></div>
+
+    <aside class="sidebar">
+        <div class="sidebar-logo">🔍 Hub</div>
+        <nav class="sidebar-nav">
+            <a href="recent-lost.html">Recent Lost Post</a>
+            <a href="recent-found.html">Recent Found Post</a>
+            <a href="activity.html">Your Activity</a>
+            <a href="index.html" class="logout-btn">Logout 🚪</a>
+        </nav>
+    </aside>
+
+    <div class="main-wrapper">
+        <header class="header-right">
+            <div class="profile-pill" onclick="alert('Profile Settings')">
+                👤 <span id="user-display-name">User</span>
+            </div>
+        </header>
+
+        <section class="hero-section">
+            <h1 class="elegant-title">Reuniting You with Your Favourites</h1>
+        </section>
+
+        <main class="content-grid">
+            <div class="big-card lost-box" onclick="location.href='lost-form.html'">
+                <span class="emoji">😿</span>
+                <h2>Lost Something?</h2>
+                <p>Post a report so we can help you find it!</p>
+            </div>
+
+            <div class="big-card found-box" onclick="location.href='found-form.html'">
+                <span class="emoji">🎁</span>
+                <h2>Found Something!</h2>
+                <p>Be a hero! Report a found item here.</p>
+            </div>
+        </main>
+    </div>
+
+    <script>
+    window.onload = function() {
+    const savedUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (savedUser) {
+        document.getElementById('user-display-name').innerText = savedUser.name;
+        }
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('preview') === 'active') {
+        const data = JSON.parse(localStorage.getItem('tempPost'));
+        if(data) {
+            document.getElementById('homePreviewOverlay').style.display = 'flex';
+            document.getElementById('finalDetails').innerHTML = `
+                <p style="font-size: 2.2rem; font-weight: bold; color: #6c5ce7;">${data.name}</p>
+                <p><b>Category:</b> ${data.category}</p>
+                <p><b>Seen at:</b> ${data.loc} (${data.time})</p>
+                <p><b>Details:</b> ${data.desc}</p>
+            `;
+        }
+    }
+    // Add this inside window.onload in home.html
+const fParams = new URLSearchParams(window.location.search);
+if (fParams.get('foundPreview') === 'active') {
+    const data = JSON.parse(localStorage.getItem('tempFound'));
+    document.getElementById('homePreviewOverlay').style.display = 'flex';
+    document.getElementById('finalDetails').innerHTML = `
+        <h2 style="color:#27ae60">Found Hero Post: ${data.name}</h2>
+        <p><b>Category:</b> ${data.cat}</p>
+        <p><b>Details:</b> ${data.desc}</p>
+        <p><b>Where:</b> Found at ${data.loc} (${data.time})</p>
+    `;
+}
+
+// Function to call for Posting Found items
+function postFound() {
+    const card = document.getElementById('paperPlaneCard');
+    card.classList.add('fly-away'); // Use your flight animation CSS
+
+    setTimeout(() => {
+        document.getElementById('homePreviewOverlay').style.display = 'none';
+        alert("✨ Hero Status Confirmed! Mission Accomplished!");
+        localStorage.removeItem('tempFound');
+    }, 1200);
+}
+};
+
+/*function animateAndPost() {
+    
+    
+    // 1. Target the preview modal for animation
+    const card = document.getElementById('paperPlaneCard');
+    
+    // 2. Add the 'fly-away' CSS class to start the folding/flying effect
+    card.classList.add('fly-away');
+
+    // 3. Wait for the flight animation to finish (approx 1.2 seconds)
+    setTimeout(() => {
+        // Hide the main overlay
+        document.getElementById('homePreviewOverlay').style.display = 'none';
+        
+        // 4. Show the "Mission Accomplished" pop-up
+        const mission = document.getElementById('missionPop');
+        mission.classList.add('show'); 
+        
+        // Clear the temporary data from storage
+        localStorage.removeItem('tempPost');
+        localStorage.removeItem('tempFound');
+
+        // 5. REDIRECT: Wait 2.5 seconds so the user sees the success message
+        setTimeout(() => {
+            // Clearing URL parameters and refreshing the home page
+            window.location.href = "home.html";
+        }, 2500);
+        
+    }, 1200);
+
+
+    
+    const card2 = document.getElementById('paperPlaneCard');
+    
+    // 1. Trigger the fold and fly animation
+    card.classList.add('fly-away');
+
+    setTimeout(() => {
+        // 2. Hide the preview overlay
+        document.getElementById('homePreviewOverlay').style.display = 'none';
+        
+        // 3. Show the "Poof! Mission Accomplished" pop-up
+        const mission = document.getElementById('missionPop');
+        mission.classList.add('show');
+        
+        // 4. Clean up local storage
+        localStorage.removeItem('tempPost');
+        localStorage.removeItem('tempFound');
+
+        // 5. Final Redirect: Wait for the user to see the success message, then redirect
+        setTimeout(() => {
+            // This clears the ?preview=active from the URL and resets the Home page
+            window.location.href = "home.html";
+        }, 2500); // 2.5 seconds allows the user to read the cute pop-up
+        
+    }, 1200); // Matches the flight animation duration
+
+    
+    const card3= document.getElementById('paperPlaneCard');
+    card.classList.add('fly-away');
+
+    setTimeout(() => {
+        // 1. Capture the data from the current form session
+        const newItem = JSON.parse(localStorage.getItem('tempPost') || localStorage.getItem('tempFound'));
+        
+        if (newItem) {
+            // 2. Add it to the permanent list (The Registry)
+            let allFound = JSON.parse(localStorage.getItem('allFoundPosts') || "[]");
+            allFound.push(newItem);
+            localStorage.setItem('allFoundPosts', JSON.stringify(allFound));
+        }
+
+        // 3. UI Transition
+        document.getElementById('homePreviewOverlay').style.display = 'none';
+        document.getElementById('missionPop').classList.add('show');
+
+        // 4. Redirect
+        setTimeout(() => {
+            window.location.href = "home.html";
+        }, 2500);
+    }, 1200);
+
+    
+    
+    
+    const card4 = document.getElementById('paperPlaneCard');
+    card.classList.add('fly-away');
+
+    setTimeout(() => {
+        // 1. Retrieve the data you filled in the Lost Form
+        const rawData = localStorage.getItem('tempPost');
+        if (rawData) {
+            const newItem = JSON.parse(rawData);
+            
+            // 2. Add it to a permanent Array (The Registry)
+            let allLost = JSON.parse(localStorage.getItem('allLostPosts') || "[]");
+            newItem.id = Date.now(); // Unique ID for deleting later
+            allLost.push(newItem);
+            
+            // 3. Save the updated list back to storage
+            localStorage.setItem('allLostPosts', JSON.stringify(allLost));
+        }
+
+        // 4. UI Transition
+        document.getElementById('homePreviewOverlay').style.display = 'none';
+        document.getElementById('missionPop').classList.add('show');
+
+        setTimeout(() => {
+            localStorage.removeItem('tempPost'); // Clear temp data
+            window.location.href = "home.html"; // Refresh Home
+        }, 2500);
+    }, 1200);
+}*/
+
+
+function animateAndPost() {
+
+    const card = document.getElementById('paperPlaneCard');
+    if (!card) return; // Safety check
+
+    // 1️⃣ Start animation
+    card.classList.add('fly-away');
+
+    setTimeout(() => {
+
+        // 2️⃣ Handle LOST post
+        const lostData = localStorage.getItem('tempPost');
+        if (lostData) {
+            const newItem = JSON.parse(lostData);
+            newItem.id = Date.now(); // Unique ID
+
+            let allLost = JSON.parse(localStorage.getItem('allLostPosts') || "[]");
+            allLost.push(newItem);
+
+            localStorage.setItem('allLostPosts', JSON.stringify(allLost));
+            localStorage.removeItem('tempPost');
+        }
+
+        // 3️⃣ Handle FOUND post
+        const foundData = localStorage.getItem('tempFound');
+        if (foundData) {
+            const newItem = JSON.parse(foundData);
+            newItem.id = Date.now();
+
+            let allFound = JSON.parse(localStorage.getItem('allFoundPosts') || "[]");
+            allFound.push(newItem);
+ 
+            console.log("all found",allFound);
+
+            localStorage.setItem('allFoundPosts', JSON.stringify(allFound));
+            localStorage.removeItem('tempFound');
+        }
+
+        // 4️⃣ UI Transition
+        const overlay = document.getElementById('homePreviewOverlay');
+        if (overlay) overlay.style.display = 'none';
+
+        const mission = document.getElementById('missionPop');
+        if (mission) mission.classList.add('show');
+
+        // 5️⃣ Redirect after success message
+        setTimeout(() => {
+            window.location.href = "home.html";
+        }, 2500);
+
+    }, 1200); // Matches animation time
+}
+
+
+    </script>
+
+<div id="homePreviewOverlay" class="home-overlay">
+    <div class="preview-modal" id="paperPlaneCard">
+        <h1 class="elegant-title">Is this right? ✨</h1>
+        <div id="finalDetails" class="details-content"></div>
+        
+        <div class="modal-btns">
+            <button class="edit-btn" onclick="location.href='lost-form.html'">1. Edit</button>
+            <button class="post-btn" onclick="animateAndPost()">2. Post It! ✈️</button>
+        </div>
+    </div>
+</div>
+
+<div id="missionPop" class="mission-popup">
+    <h2 class="ga-maamli">Poof! <br> Mission Accomplished! 🌈</h2>
+</div>
+</div> 
+
+<div id="missionPop" class="mission-popup">
+    <h2 class="ga-maamli">Poof! <br> Mission Accomplished! 🌈</h2>
+</div>
+</body>
+</html>

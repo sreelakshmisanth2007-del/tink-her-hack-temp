@@ -1,0 +1,190 @@
+/* home.css */
+
+/* SIDEBAR STYLING */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 260px;
+    height: 100vh;
+    background-color: #fff9c4; /* Pastel Yellow */
+    border-right: 4px solid #2d3436;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+}
+
+.sidebar-logo {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 50px;
+    color: #6c5ce7;
+}
+
+.sidebar-nav a {
+    display: block;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    text-decoration: none;
+    color: #2d3436;
+    font-weight: 500;
+    border-radius: 15px;
+    border: 2px solid transparent;
+    transition: 0.3s;
+}
+
+.sidebar-nav a:hover {
+    background: white;
+    border: 2px solid #2d3436;
+    transform: translateX(10px);
+}
+
+.logout-btn {
+    margin-top: auto;
+    background: #ffdae9; /* Pastel Pink */
+    border: 2px solid #2d3436 !important;
+    text-align: center;
+}
+
+/* CONTENT WRAPPER */
+.main-wrapper {
+    margin-left: 260px; /* Space for sidebar */
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-right {
+    align-self: flex-end;
+    margin-bottom: 20px;
+}
+
+.profile-pill {
+    background: white;
+    padding: 10px 25px;
+    border: 3px solid #2d3436;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 4px 4px 0px #2d3436;
+}
+
+/* ELEGANT TITLE */
+.elegant-title {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 3.8rem;
+    color: #6c5ce7;
+    text-align: center;
+    margin: 40px 0;
+    text-shadow: 3px 3px 0px #fff;
+}
+
+/* BIG RECTANGULAR CARDS */
+.content-grid {
+    display: flex;
+    gap: 50px;
+    margin-top: 20px;
+}
+
+.big-card {
+    width: 400px; /* Larger Width */
+    height: 250px; /* Larger Height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 4px solid #2d3436;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding: 20px;
+    text-align: center;
+}
+
+.lost-box {
+    background-color: #c2e9fb; /* Pastel Blue */
+    box-shadow: 15px 15px 0px #6c5ce7;
+}
+
+.found-box {
+    background-color: #fbc2eb; /* Pastel Pink */
+    box-shadow: 15px 15px 0px #ff85a1;
+}
+
+.big-card:hover {
+    transform: scale(1.05) rotate(-1deg);
+}
+
+.emoji {
+    font-size: 4.5rem;
+    margin-bottom: 15px;
+}
+
+.big-card h2 {
+    margin: 10px 0;
+    font-size: 1.8rem;
+}
+
+.home-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Higher than any card */
+}
+
+/* home.css update */
+.home-overlay {
+    position: fixed; /* Relative to the whole screen */
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(8px);
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Always on top */
+}
+
+.preview-modal {
+    width: 75vw; /* 3/4th screen width */
+    height: 75vh;
+    background: white;
+    border: 6px solid #2d3436;
+    border-radius: 60px;
+    box-shadow: 25px 25px 0px #2d3436;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 1.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+
+/* Folding and flying effect */
+.fly-away {
+    transform: scale(0.1) rotate(45deg) translate(2000px, -2000px);
+    opacity: 0;
+}
+
+/* home.css */
+.mission-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: #ffd1dc; /* Pastel Pink */
+    padding: 40px;
+    border: 4px solid #2d3436;
+    border-radius: 30px;
+    z-index: 10000; /* Highest priority */
+    text-align: center;
+    transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.mission-popup.show {
+    transform: translate(-50%, -50%) scale(1); /* Pop-in effect */
+}
+

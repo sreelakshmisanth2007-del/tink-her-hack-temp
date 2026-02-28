@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recent Lost Posts | Hub</title>
+    <link rel="stylesheet" href="recent-lost.css">
+</head>
+<body class="recent-page-body">
+    <div class="top-nav">
+        <div class="sort-wrapper">
+            <button class="sort-btn">Sort By ▾</button>
+            <div class="sort-content">
+                <div class="sort-sec">
+                    <span>📍 Location</span>
+                    <button onclick="filterLost('Library')">Library</button>
+                    <button onclick="filterLost('Canteen')">Canteen</button>
+                    <button onclick="filterLost('Auditorium')">Auditorium</button>
+                    <button onclick="filterLost('Ground')">Ground</button>
+                </div>
+                <div class="sort-sec">
+                    <span>📅 Date</span>
+                    <input type="date" id="dateFilter" onchange="filterLostByDate()">
+                </div>
+            </div>
+        </div>
+        <input type="text" id="lostSearch" class="search-bar" placeholder="Search lost items..." onkeyup="handleLostSearch()">
+    </div>
+
+    <div id="matchAlert" class="match-banner">✨ Great News! A matching item was found! Check Found Posts.</div>
+
+    <div class="lost-scroll-view">
+        <div class="lost-grid" id="lostGrid">
+            </div>
+    </div>
+
+    <div id="lostDetailOverlay" class="home-overlay">
+        <div class="preview-modal">
+            <h1 id="lPopupTitle">Post Details</h1>
+            <div id="lPopupBody" class="details-content"></div>
+            <button class="close-btn" onclick="closeLostDetails()">Close</button>
+        </div>
+    </div>
+
+    <script src="recent-lost.js"></script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+/* found-form.css */
+
+/* 1. THE STAGE: Centering and Background Pattern */
+.found-page-body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center; /* Perfectly centers horizontally */
+    align-items: center;     /* Perfectly centers vertically */
+    overflow: hidden;
+    
+    /* Attractive Pastel Green Pattern */
+    background-color: #e8f5e9; /* Soft Pastel Green */
+    background-image:  
+        radial-gradient(#27ae60 0.5px, transparent 0.5px), 
+        radial-gradient(#27ae60 0.5px, #e8f5e9 0.5px);
+    background-size: 30px 30px;
+    background-position: 0 0, 15px 15px;
+    position: relative;
+}
+
+/* 2. DOODLE DECORATIONS */
+.found-page-body::before {
+    content: "🎁";
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    font-size: 4rem;
+    opacity: 0.15;
+    transform: rotate(-20deg);
+}
+
+.found-page-body::after {
+    content: "🌟";
+    position: absolute;
+    bottom: 15%;
+    right: 15%;
+    font-size: 4rem;
+    opacity: 0.15;
+    transform: rotate(20deg);
+}
+
+/* 3. THE PLUCK-CARD STACK */
+.pluck-stack {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pluck-card {
+    position: absolute; /* Stacks cards on top of each other */
+    width: 380px;
+    height: 520px;
+    background: white;
+    border: 4px solid #2d3436; /* Thick Neubrutalist border */
+    border-radius: 40px;
+    padding: 30px;
+    display: none; /* Hidden until JS adds .active */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    /* Found-Specific Shadow */
+    box-shadow: 15px 15px 0px #27ae60; 
+    text-align: center;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Forces the card into the center when visible */
+.pluck-card.active {
+    display: flex; 
+    z-index: 10;
+    animation: swipeUp 0.5s ease;
+}
+
+@keyframes swipeUp {
+    from { transform: translateY(100px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* 4. ATTRACTIVE INPUTS & BUTTONS */
+.brutal-input {
+    width: 85%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 3px solid #2d3436;
+    border-radius: 15px;
+    font-family: 'Rubik', sans-serif;
+    outline: none;
+}
+
+.next-btn, .preview-btn {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: #2d3436;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.next-btn:hover {
+    transform: scale(1.1);
+    background: #27ae60;
+}
+
+/* 5. PREVIEW OVERLAY: High Z-Index Fix */
+.home-overlay {
+    position: fixed; /* Relative to viewport */
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(8px);
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* High number prevents layering issues */
+}

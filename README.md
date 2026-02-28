@@ -2,27 +2,27 @@
   <img src="./img.png" alt="Project Banner" width="100%">
 </p>
 
-# [Project Name] 🎯
+# [LOST AND FOUND] 🎯
 
 ## Basic Details
 
-### Team Name: [Name]
+### Team Name: [pinky promise]
 
 ### Team Members
-- Member 1: [Name] - [College]
-- Member 2: [Name] - [College]
+- Member 1: [Vipanchika P A] - [TKMCE]
+- Member 2: [Sreelakshmi Santhosh] - [TKMCE]
 
 ### Hosted Project Link
 [mention your project hosted link here]
 
 ### Project Description
-[2-3 lines about what your project does]
+[This project is a user-friendly website that helps people find lost items or report things they have found in the campus. Users can post their lost or found items in a post-like manner and can contact each other. All these are incorporated to result in a positive, helpful and user-friendly website. ]
 
 ### The Problem statement
-[What problem are you solving?]
+[In many busy environments,there is no central or reliable way to report and find missing belongings,leading to valuable items being permanently lost despite being found by others.Existing methods, like physical notice boards or random social media posts,are often disorganized,difficult to search, and lack real-time updates.]
 
 ### The Solution
-[How are you solving it?]
+[The problem is solved by providing a centralized digital registry that organizes information ,improves searchability and enables quick access. Users can post their lost or found items in a post-like manner and can contact each other. All these are incorporated to result in a positive, helpful and user-friendly website.]
 
 ---
 
@@ -31,10 +31,9 @@
 ### Technologies/Components Used
 
 **For Software:**
-- Languages used: [e.g., JavaScript, Python, Java]
-- Frameworks used: [e.g., React, Django, Spring Boot]
-- Libraries used: [e.g., axios, pandas, JUnit]
-- Tools used: [e.g., VS Code, Git, Docker]
+- Languages used :[HTML,Javascript,CSS] 
+- Frameworks used: [CSS grid and flexbox,Web storage API,Neubrutalism,DOM manipulation]
+- Libraries used: [Web Storage API,DOM API,JSON utility,CSS grid and flexbox]- Tools used: [V S Code,Live server,Applications Tab,Console ]
 
 **For Hardware:**
 - Main components: [List main components]
@@ -46,10 +45,10 @@
 ## Features
 
 List the key features of your project:
-- Feature 1: [Description]
-- Feature 2: [Description]
-- Feature 3: [Description]
-- Feature 4: [Description]
+- Feature 1: [Dual registry system-the platform maintains two seperate,permanent databases in local storage. One for lost items and one for found items to ensure data is organised and persistent.]
+- Feature 2: [Real-time search and filtering-the website includes a functional search bar that allows users to instantly filter the grid of post by item name to find their belongings quickly]
+- Feature 3: [Interactive animated submissions-users experience a unique animation that visually confirms their post has been sent before redirecting them to the home page.]
+- Feature 4: [Dynamic visual postings-every report is automatically transformed into a "rectangular box" on the recent post pages displaying the item and location at a glance.]
 
 ---
 
@@ -59,12 +58,12 @@ List the key features of your project:
 
 #### Installation
 ```bash
-[Installation commands - e.g., npm install, pip install -r requirements.txt]
+[Installation commands - node.js,package.json]
 ```
 
 #### Run
 ```bash
-[Run commands - e.g., npm start, python app.py]
+[Run commands - live-server, dir, node, npm]
 ```
 
 ### For Hardware:
@@ -83,7 +82,7 @@ List the key features of your project:
 
 #### Screenshots (Add at least 3)
 
-![Screenshot1](Add screenshot 1 here with proper name)
+[](Add screenshot 1 here with proper name)
 *Add caption explaining what this shows*
 
 ![Screenshot2](Add screenshot 2 here with proper name)

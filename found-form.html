@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Found Item - Hero Report</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="found-form.css">
+</head>
+<body class="found-page-body">
+    <div class="pluck-stack">
+        <div class="pluck-card active" id="fstep1">
+            <h1 class="hero-title">Found Something? 🎁</h1>
+            <p>"You're a hero in the making! Let's get this back to its owner."</p>
+            <button class="next-btn" onclick="fNext(2)">Start ➔</button>
+        </div>
+
+        <div class="pluck-card" id="fstep2">
+            <h2>Which category?</h2>
+            <div class="cat-grid">
+                <button onclick="fSave('cat', 'Electronics', 3)">🔌 Electronics</button>
+                <button onclick="fSave('cat', 'Educational', 3)">📚 Educational</button>
+                <button onclick="fSave('cat', 'Money', 3)">💸 Money</button>
+                <button onclick="fSave('cat', 'Others', 3)">✨ Others</button>
+            </div>
+        </div>
+
+        <div class="pluck-card" id="fstep3">
+            <h2>What is it exactly?</h2>
+            <input type="text" id="fItemName" placeholder="e.g. Red Water Bottle" class="brutal-input">
+            <button class="next-btn" onclick="fNext(4)">Next</button>
+        </div>
+
+        <div class="pluck-card" id="fstep4">
+            <h2>Description Points</h2>
+            <input type="text" id="fdesc1" placeholder="• Feature 1" class="brutal-input">
+            <input type="text" id="fdesc2" placeholder="• Feature 2" class="brutal-input">
+            <button class="next-btn" onclick="fNext(5)">Next</button>
+        </div>
+
+        <div class="pluck-card" id="fstep5">
+            <h2>Where & When?</h2>
+            <input type="text" id="fLoc" placeholder="📍 Found at..." class="brutal-input">
+            <input type="time" id="fTime" class="brutal-input">
+            <button class="next-btn" onclick="fNext(6)">Next</button>
+        </div>
+
+        <div class="pluck-card" id="fstep6">
+            <h2>Add a Photo (Optional)</h2>
+            <div class="upload-zone" onclick="document.getElementById('fPhoto').click()">
+                <input type="file" id="fPhoto" hidden>
+                <span>📸 Click to Upload</span>
+            </div>
+            <button class="preview-btn" onclick="fPreview()">Preview Post! ✨</button>
+        </div>
+    </div>
+    <script src="found-logic.js"></script>
+</body>
+</html>

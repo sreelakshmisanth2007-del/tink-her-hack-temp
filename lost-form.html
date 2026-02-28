@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lost Something? - Hub</title>
+    <link rel="stylesheet" href="lost-form.css">
+</head>
+<body class="lost-page-body">
+    <div class="pluck-stack">
+        <div class="pluck-card active" id="lcard1">
+            <h1 class="elegant-title">Lost Something? 😿</h1>
+            <p>"Don't lose hope, let's find it together!"</p>
+            <button class="next-btn" onclick="nextL(2)">Start Journey ➔</button>
+        </div>
+
+        <div class="pluck-card" id="lcard2">
+            <h3>Which category?</h3>
+            <div class="cat-list">
+                <button onclick="saveL('cat', 'Electronics', 3)">📱 Electronics</button>
+                <button onclick="saveL('cat', 'Educational', 3)">📚 Educational</button>
+                <button onclick="saveL('cat', 'Money', 3)">💸 Money</button>
+                <button onclick="saveL('cat', 'Others', 3)">✨ Others</button>
+            </div>
+        </div>
+
+        <div class="pluck-card" id="lcard3">
+            <h3>What did you lose?</h3>
+            <input type="text" id="lName" placeholder="e.g. Blue Titan Watch" class="brutal-input">
+            <button class="next-btn" onclick="nextL(4)">Next</button>
+        </div>
+
+        <div class="pluck-card" id="lcard4">
+            <h3>Description Points</h3>
+            <textarea id="lDesc" placeholder="• Scratched back&#10;• Red sticker" class="brutal-input"></textarea>
+            <button class="next-btn" onclick="nextL(5)">Next</button>
+        </div>
+
+        <div class="pluck-card" id="lcard5">
+            <h3>Where & When?</h3>
+            <input type="text" id="lLoc" placeholder="📍 Last seen at..." class="brutal-input">
+            <input type="time" id="lTime" class="brutal-input">
+            <button class="next-btn" onclick="nextL(6)">Final Step</button>
+        </div>
+
+        <div class="pluck-card" id="lcard6">
+            <h3>Add a Photo? (Optional)</h3>
+            <div class="upload-zone">📸 Tap to Upload</div>
+            <button class="preview-btn" onclick="finishL()">Preview Post ✨</button>
+        </div>
+    </div>
+    <script src="lost-logic.js"></script>
+</body>
+</html>

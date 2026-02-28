@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recent Found Posts | Hero Hub</title>
+    <link rel="stylesheet" href="recent-found.css">
+</head>
+<body class="recent-page-body">
+    <div class="main-layout">
+        <section class="content-area">
+            <div class="top-bar">
+                <div class="sort-container">
+                    <button class="sort-btn">Sort By ▾</button>
+                    <div class="sort-dropdown">
+                        <div class="sort-group">
+                            <span>Location:</span>
+                            <button onclick="filterBy('Library')">Library</button>
+                            <button onclick="filterBy('Canteen')">Canteen</button>
+                        </div>
+                        <div class="sort-group">
+                            <span>Date:</span>
+                            <input type="date" id="dateSort" onchange="filterByDate()">
+                        </div>
+                    </div>
+                </div>
+                <input type="text" id="searchInput" class="search-bar" placeholder="Search for items..." onkeyup="searchPosts()">
+            </div>
+
+            <div class="posts-scroll-container">
+                <div class="posts-grid" id="postsGrid">
+                    </div>
+            </div>
+        </section>
+
+        <aside class="emergency-sidebar">
+            <h2 class="emergency-title">⚠️ URGENT LOST</h2>
+            <div class="emergency-list" id="emergencyList">
+                <div class="emergency-item">
+                    <strong>Diamond Ring</strong>
+                    <p>Lost near Auditorium. High Reward!</p>
+                </div>
+                <div class="emergency-item">
+                    <strong>Exam Hall Ticket</strong>
+                    <p>Lost in Canteen. Needs it for 2PM exam!</p>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <div id="detailOverlay" class="home-overlay">
+        <div class="preview-modal">
+            <h1 id="popupTitle">Item Details</h1>
+            <div id="popupBody" class="details-content"></div>
+            <button class="close-btn" onclick="closeDetails()">Close</button>
+        </div>
+    </div>
+
+    <script src="recent-found.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost & Found - Rubik Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&family=Ga+Maamli&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="doodle-overlay"></div>
+
+    <div class="main-container">
+        <div id="signup-page">
+            <h1 class="funky-header">Join Us! ✨</h1>
+            <input type="text" id="reg-name" placeholder="Full Name">
+            <input type="text" id="reg-sid" placeholder="Student ID 🎓">
+            <input type="tel" id="reg-phone" placeholder="Phone Number 📱">
+            <input type="email" id="reg-email" placeholder="Email ID 📧">
+            <input type="password" id="reg-pass" placeholder="Create Password 🔑">
+            <button class="funky-btn" onclick="processSignUp()">Register 🚀</button>
+            <p>Already a member? <span class="funky-link" onclick="toggleView('login-page')">Sign In</span></p>
+        </div>
+
+        <div id="login-page" style="display:none;">
+            <h1 class="funky-header">Welcome! 👋</h1>
+            <input type="text" id="login-name" placeholder="Enter Name">
+            <input type="password" id="login-pass" placeholder="Enter Password">
+            <button class="funky-btn" onclick="processLogin()">Let's Go! ✌️</button>
+            <p class="forgot-text" onclick="toggleView('forgot-page')">Oops, forgot password?</p>
+            <p>New friend? <span class="funky-link" onclick="toggleView('signup-page')">Sign Up</span></p>
+        </div>
+
+        <div id="forgot-page" style="display:none;">
+            <h1 class="funky-header">Reset Time 🛠️</h1>
+            <input type="text" id="reset-verify" placeholder="Email or Phone">
+            <input type="password" id="new-password" placeholder="New Secret Password">
+            <button class="funky-btn" onclick="processReset()">Update Password 🌈</button>
+            <p><span class="funky-link" onclick="toggleView('login-page')">Back to Login</span></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

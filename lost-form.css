@@ -1,0 +1,80 @@
+/* lost-form.css */
+
+/* THE STAGE: This centers everything inside it */
+.lost-page-body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center; /* Horizontal center */
+    align-items: center;     /* Vertical center */
+    overflow: hidden;
+    
+    /* Attractive Pastel Background */
+    background-color: #e3f2fd; 
+    background-image: radial-gradient(#6c5ce7 0.5px, transparent 0.5px);
+    background-size: 30px 30px;
+    position: relative;
+}
+
+/* Background Doodles */
+.lost-page-body::before {
+    content: "🔍";
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    font-size: 5rem;
+    opacity: 0.15;
+    transform: rotate(-15deg);
+}
+
+.lost-page-body::after {
+    content: "✨";
+    position: absolute;
+    bottom: 12%;
+    right: 12%;
+    font-size: 4rem;
+    opacity: 0.15;
+    transform: rotate(15deg);
+}
+
+/* Container for stacked cards */
+.pluck-stack {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* THE CARD: Centered and Attractive */
+.pluck-card {
+    position: absolute; /* Stacks cards in the center */
+    width: 380px;
+    height: 500px;
+    background: white;
+    border: 4px solid #2d3436;
+    border-radius: 40px;
+    padding: 30px;
+    display: none; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 15px 15px 0px #6c5ce7; 
+    text-align: center;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Active State */
+.pluck-card.active {
+    display: flex;
+    z-index: 10;
+    animation: popCenter 0.5s ease;
+}
+
+@keyframes popCenter {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
