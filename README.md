@@ -82,7 +82,8 @@ List the key features of your project:
 
 #### Screenshots (Add at least 3)
 
-[](Add screenshot 1 here with proper name)
+<img width="602" height="592" alt="image" src="https://github.com/user-attachments/assets/d8ff6662-d6a8-44f0-a48a-627c34f1977f" />
+
 *Add caption explaining what this shows*
 
 ![Screenshot2](Add screenshot 2 here with proper name)
