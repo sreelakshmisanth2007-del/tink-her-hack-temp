@@ -84,14 +84,15 @@ List the key features of your project:
 
 <img width="602" height="592" alt="image" src="https://github.com/user-attachments/assets/d8ff6662-d6a8-44f0-a48a-627c34f1977f" />
 
-*Add caption explaining what this shows*
+[this image shows the login page]
 
 <img width="1215" height="605" alt="image" src="https://github.com/user-attachments/assets/187b2479-e541-4378-9718-070825026488" />
 
-*Add caption explaining what this shows*
+[this image shows the home page]
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+<img width="524" height="572" alt="image" src="https://github.com/user-attachments/assets/50480a04-8121-4ee4-bced-1f6f9a42499a" />
+
+[lost enquiry page]
 
 #### Diagrams
 
